@@ -8,5 +8,5 @@ import com.quiznestserver.model.UserRole;
 public interface UserRegisterationService {
 	
 	//assuming that a user can have multiple roles(ONLY FOR GENERIC CASES)
-	public User registerUser(User user, Set<UserRole> userRoles) throws Exception;
+	public User registerUser(User user) throws Exception;
 }
