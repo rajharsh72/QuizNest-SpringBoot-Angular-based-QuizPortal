@@ -12,6 +12,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatToolbarModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
