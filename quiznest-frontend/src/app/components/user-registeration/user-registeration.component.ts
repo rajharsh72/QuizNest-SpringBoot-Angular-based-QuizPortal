@@ -21,4 +21,5 @@ interface Gender{
 
 export class UserRegisterationComponent {
 
+  hide=true;
 }

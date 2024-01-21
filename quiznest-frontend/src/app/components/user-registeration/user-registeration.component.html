@@ -18,6 +18,8 @@
                 </mat-form-field>
             </div>
         </div>
+
+        
         <div class="form-group">
             <mat-form-field class="full" appearance="outline">
                 <mat-label>Email</mat-label>
@@ -25,11 +27,12 @@
             </mat-form-field>
         </div>
 
+
         <div class="form-row">
             <div class="form-group col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Phone Number</mat-label>
-                    <input type="number" placeholder="First Name">
+                    <input type="number" matInput placeholder="First Name">
                 </mat-form-field>
             </div>
             <div class="form-group col-md-6">
@@ -40,21 +43,32 @@
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <mat-form-field appearance="outline">
-                    <mat-label>First Name</mat-label>
-                    <input matInput placeholder="First Name">
+        
+        <div class="form-group">
+            <mat-form-field class='full' appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
                 </mat-form-field>
-            </div>
-            <div class="form-group col-md-6">
-                <mat-form-field appearance="outline">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput  placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <mat-form-field class="full" appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
                 </mat-form-field>
-            </div>
         </div>
 
+        <div mat-dialog-actions class="submitBtn">
+            <button mat-raised-button color="primary" type="submit">Sign Up</button>
+            <button mat-raised-button color="warn" type="reset">Reset</button>
+        </div>
     </div>
+
+    
 </form>
 
