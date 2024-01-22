@@ -2,19 +2,27 @@
     Register Here!!
 </div>
 
-<form>
+<form (ngSubmit)="registerUser()">
     <div mat-dialog-content class="content">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>First Name</mat-label>
-                    <input matInput placeholder="First Name">
+                    <input 
+                    [(ngModel)]="user.firstName"
+                    matInput placeholder="First Name"
+                    name="firstName"
+                    required="true">
                 </mat-form-field>
             </div>
             <div class="form-group col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Last Name</mat-label>
-                    <input matInput  placeholder="Last Name">
+                    <input
+                    [(ngModel)]="user.lastName"
+                    name="lastName" 
+                    matInput  placeholder="Last Name"
+                    required="true">
                 </mat-form-field>
             </div>
         </div>
@@ -23,7 +31,11 @@
         <div class="form-group">
             <mat-form-field class="full" appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput  placeholder="Email">
+                <input 
+                [(ngModel)]="user.email"
+                name="email"
+                matInput  placeholder="Email"
+                required="true">
             </mat-form-field>
         </div>
 
@@ -32,13 +44,21 @@
             <div class="form-group col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Phone Number</mat-label>
-                    <input type="number" matInput placeholder="First Name">
+                    <input type="number"
+                    [(ngModel)]="user.phoneNo"
+                    name="phoneNo"
+                    matInput placeholder="First Name"
+                    required="true">
                 </mat-form-field>
             </div>
             <div class="form-group col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Gender</mat-label>
-                    <input matInput  placeholder="Last Name">
+                    <input
+                    [(ngModel)]="user.gender"
+                    name="gender"
+                     matInput  placeholder="Last Name"
+                     required="true">
                 </mat-form-field>
             </div>
         </div>
@@ -47,19 +67,25 @@
         <div class="form-group">
             <mat-form-field class='full' appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <input 
+                [(ngModel)]="user.password"
+                name="password"
+                matInput type="password" 
+                placeholder="Enter your password"
+                required="true">
+                <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
+                </button> -->
                 </mat-form-field>
         </div>
         <div class="form-group">
             <mat-form-field class="full" appearance="outline">
                 <mat-label>Confirm Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <input matInput type="password" placeholder="Enter your password"
+                required="true">
+                <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
+                </button> -->
                 </mat-form-field>
         </div>
 
