@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { isEmpty } from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserRegisterationServiceService } from 'src/app/services/user-registeration-service.service';
+import Swal from 'sweetalert2';
+
 interface Gender{
   value: String;
-  labe: String;
+  label: String;
 
 }
 
@@ -16,7 +19,9 @@ interface Gender{
 export class UserRegisterationComponent {
 
   constructor(
-    private _registerationService:UserRegisterationServiceService
+    private _registerationService:UserRegisterationServiceService,
+    private _snackBar: MatSnackBar,
+    private _dialogRef: MatDialogRef<UserRegisterationComponent>
   ){}
 
   public user = {
@@ -33,9 +38,17 @@ export class UserRegisterationComponent {
     console.log(this.user);
       this._registerationService.registerUser(this.user).subscribe((res)=>{
         console.log("user registered successfully")
+        Swal.fire({
+          title: "Kudos" + ' '+ this.user.firstName,
+          text: "Registeration Successfull",
+          icon: "success"
+        });
+        this._dialogRef.close();
       },
       (err)=>{
-        console.log("something went wrong...", err);
+        this._snackBar.open("something went wrong... !!!", 'OK',{
+          duration: 5000
+        });
       })
   }
 }
