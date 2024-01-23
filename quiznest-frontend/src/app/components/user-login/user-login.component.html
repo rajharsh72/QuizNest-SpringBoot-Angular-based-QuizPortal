@@ -1,1 +1,41 @@
-<p>user-login works!</p>
+<div mat-dialog-title class="dialogTitle">
+    Login Here!!
+</div>
+
+<form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+    <div mat-dialog-content class="content">
+        
+        <div class="form-group">
+            <mat-form-field class="full" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input 
+                formControlName="email"
+                matInput  placeholder="Email"
+                required="true">
+            </mat-form-field>
+        </div>
+
+
+        <div class="form-group">
+            <mat-form-field class='full' appearance="outline">
+                <mat-label>Password</mat-label>
+                <input 
+                formControlName="password"
+                matInput type="password" 
+                placeholder="Enter your password"
+                required="true">
+                <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button> -->
+                </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions class="submitBtn">
+            <button mat-raised-button color="primary" type="submit">Login</button>
+            <button mat-raised-button color="warn" type="reset">Clear</button>
+        </div>
+    </div>
+
+    
+</form>
+

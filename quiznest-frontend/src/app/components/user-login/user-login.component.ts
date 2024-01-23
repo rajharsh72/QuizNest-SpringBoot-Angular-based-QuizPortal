@@ -20,9 +20,10 @@ export class UserLoginComponent {
   userLogin(){
     if(this.loginForm.valid){
       this._loginService.userLogin(this.loginForm.value).subscribe((res)=>{
-
+        
       },
       (err)=>{
+
       });
     }
     else{

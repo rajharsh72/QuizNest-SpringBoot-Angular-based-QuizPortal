@@ -26,10 +26,10 @@ export class UserRegisterationComponent {
   ){}
 
   genders: Gender[]=[
-    {value:"Male",label:"Male"},
-    {value:"Female",label:"Female"},
-    {value:"Transgender", label:"Transexual"},
-    {value:"Not Specified", label:'Not Specified'}
+    {value:"male",label:"Male"},
+    {value:"female",label:"Female"},
+    {value:"transgender", label:"Transexual"},
+    {value:"not specified", label:'Not Specified'}
   ]
 
   registerationForm = new FormGroup({
