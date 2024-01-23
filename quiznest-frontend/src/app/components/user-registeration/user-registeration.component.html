@@ -41,7 +41,7 @@
             <div class="form-group col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Phone Number</mat-label>
-                    <input type="number"
+                    <input type="tel"
                     formControlName="phoneNo"
                     matInput placeholder="First Name"
                     required="true">
@@ -50,10 +50,11 @@
             <div class="form-group col-md-6">
                 <mat-form-field appearance="outline">
                     <mat-label>Gender</mat-label>
-                    <input
-                     formControlName="gender"
-                     matInput  placeholder="Last Name"
-                     required="true">
+                    <mat-select name="gender" formControlName="gender">
+                        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                            {{gender.label}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
         </div>

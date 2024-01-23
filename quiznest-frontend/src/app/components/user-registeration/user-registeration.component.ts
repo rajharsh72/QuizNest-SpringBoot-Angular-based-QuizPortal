@@ -25,14 +25,12 @@ export class UserRegisterationComponent {
     private _dialogRef: MatDialogRef<UserRegisterationComponent>
   ){}
 
-  public user = {
-    email:'',
-    firstName:'',
-    lastName:'',
-    phoneNo:'',
-    gender:'',
-    password:''
-  };
+  genders: Gender[]=[
+    {value:"Male",label:"Male"},
+    {value:"Female",label:"Female"},
+    {value:"Transgender", label:"Transexual"},
+    {value:"Not Specified", label:'Not Specified'}
+  ]
 
   registerationForm = new FormGroup({
     'email': new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
@@ -56,6 +54,7 @@ export class UserRegisterationComponent {
         this._dialogRef.close();
       },
       (err)=>{
+        console.log(err);
         this._snackBar.open("something went wrong... !!!", 'OK',{
           duration: 5000
         });
