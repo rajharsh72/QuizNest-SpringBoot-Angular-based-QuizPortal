@@ -12,7 +12,6 @@ public class JwtRequest {
 	 * @param password
 	 */
 	public JwtRequest(String email, String password) {
-		super();
 		this.email = email;
 		this.password = password;
 	}

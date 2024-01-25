@@ -2,13 +2,14 @@ package com.quiznestserver.model;
 
 public class JwtResponse {
 	
+	private User user;
 	private String token;
 
 	/**
 	 * @param token
 	 */
-	public JwtResponse(String token) {
-		super();
+	public JwtResponse(User user, String token) {
+		this.user = user;
 		this.token = token;
 	}
 	
@@ -27,6 +28,21 @@ public class JwtResponse {
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	
 	
 }

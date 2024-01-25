@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.quiznestserver.dao.RoleDao;
@@ -21,6 +22,9 @@ public class UserRegisterationServiceImpl implements UserRegisterationService {
 	
 	@Autowired
 	private RoleDao roleDao;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Override
 	public User registerUser(User user) throws Exception {
@@ -48,6 +52,8 @@ public class UserRegisterationServiceImpl implements UserRegisterationService {
 			
 			//assign the roles to the user
 			user.getUserRoles().addAll(roles);
+			
+			user.setPassword(this.passwordEncoder.encode(user.getPassword()));
 			
 			//save the user in the database
 			User newUser = this.userDao.save(user);

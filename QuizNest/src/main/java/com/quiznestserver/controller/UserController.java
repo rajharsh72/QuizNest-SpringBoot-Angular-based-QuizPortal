@@ -18,7 +18,7 @@ import com.quiznestserver.service.UserService;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin("*")
+@CrossOrigin
 public class UserController {
 	
 	@Autowired
