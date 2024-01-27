@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
 		}
 		return "No user found!!";
 	}
+	
+	@Override
+	public User getCurrentUser(String email) {
+		return this.userDao.findByEmail(email);
+	}
 }

@@ -21,7 +21,8 @@ export class UserLoginComponent {
     if(this.loginForm.valid){
       this._loginService.userAuthentication(this.loginForm.value).subscribe((res)=>{
         console.log("Success!!");
-        console.log(res);
+        console.log(res.token);
+        
         
       },
       (err)=>{

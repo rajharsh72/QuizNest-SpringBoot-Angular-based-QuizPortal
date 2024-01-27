@@ -30,7 +30,7 @@ export class UserLoginService {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  getUser(){
+  getUser():any{
     let user = localStorage.getItem('user');
     if(user!=null){
       return JSON.parse(user);
@@ -40,7 +40,7 @@ export class UserLoginService {
     }
   }
 
-  isLoggedIn(){
+  isLoggedIn(): boolean{
     let token = this.getToken();
     if(token == undefined || token == '' || token == null){
       return false;
@@ -49,8 +49,14 @@ export class UserLoginService {
     }
   }
 
-  logout(){
+  logout():boolean{
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     return true;
+  }
+
+  getUserRole():any{
+    let user = this.getUser()
+    return (user.role[0]["roleName"]);
   }
 }

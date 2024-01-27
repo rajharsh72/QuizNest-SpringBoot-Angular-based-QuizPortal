@@ -10,4 +10,6 @@ public interface UserService {
 
 	String deleteUser(String email);
 
+	User getCurrentUser(String email);
+
 }
