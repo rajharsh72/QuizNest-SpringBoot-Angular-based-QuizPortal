@@ -19,11 +19,14 @@ export class UserLoginComponent {
 
   userLogin(){
     if(this.loginForm.valid){
-      this._loginService.userLogin(this.loginForm.value).subscribe((res)=>{
+      this._loginService.userAuthentication(this.loginForm.value).subscribe((res)=>{
+        console.log("Success!!");
+        console.log(res);
         
       },
       (err)=>{
-
+        console.log("Error!!");
+        console.log(err);
       });
     }
     else{

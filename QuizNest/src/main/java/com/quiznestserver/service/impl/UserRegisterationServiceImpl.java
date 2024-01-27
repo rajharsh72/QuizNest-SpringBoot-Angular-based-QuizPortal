@@ -11,7 +11,6 @@ import com.quiznestserver.dao.RoleDao;
 import com.quiznestserver.dao.UserDao;
 import com.quiznestserver.model.Role;
 import com.quiznestserver.model.User;
-import com.quiznestserver.model.UserRole;
 import com.quiznestserver.service.UserRegisterationService;
 
 @Service
@@ -38,20 +37,10 @@ public class UserRegisterationServiceImpl implements UserRegisterationService {
 			role.setRoleId(1L);
 			role.setRoleName("USER");
 			
-			//assigning the role to the user
-			UserRole userRole = new UserRole();
-			userRole.setUser(user);
-			userRole.setRole(role);
+			Set<Role> roles = new HashSet<>();
+			roles.add(role);
 			
-			Set<UserRole> roles = new HashSet<>();
-			roles.add(userRole);
-			//save the user roles in the database
-			for(UserRole ur: roles) {
-				this.roleDao.save(ur.getRole());
-			}
-			
-			//assign the roles to the user
-			user.getUserRoles().addAll(roles);
+			user.setRoles(roles);
 			
 			user.setPassword(this.passwordEncoder.encode(user.getPassword()));
 			

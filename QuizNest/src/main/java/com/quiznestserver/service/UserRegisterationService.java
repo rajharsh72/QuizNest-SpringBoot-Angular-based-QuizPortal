@@ -3,7 +3,6 @@
 import java.util.Set;
 
 import com.quiznestserver.model.User;
-import com.quiznestserver.model.UserRole;
 
 public interface UserRegisterationService {
 	

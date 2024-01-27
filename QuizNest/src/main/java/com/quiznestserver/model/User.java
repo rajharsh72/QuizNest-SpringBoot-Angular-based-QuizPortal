@@ -1,21 +1,15 @@
 package com.quiznestserver.model;
 
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -34,11 +28,11 @@ public class User {
 	private String password;
 	private String profileImage;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy="user")
-	@JsonIgnore
-	private Set<UserRole> userRoles = new HashSet<>();
-	
-	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name="user_id"),
+									inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles;	//stores the role of a particular user
+
 
 	/**
 	 * @param id
@@ -213,14 +207,14 @@ public class User {
 	/**
 	 * @return the userRoles
 	 */
-	public Set<UserRole> getUserRoles() {
-		return userRoles;
+	public Set<Role> getRole() {
+		return roles;
 	}
 
 	/**
 	 * @param userRoles the userRoles to set
 	 */
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 }

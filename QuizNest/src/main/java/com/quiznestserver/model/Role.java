@@ -18,9 +18,6 @@ public class Role {
 	private long roleId;
 	private String roleName;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="role")
-	private Set<UserRole> userRoles = new HashSet<>();
-	
 	public Role() {
 		
 	}
@@ -63,23 +60,5 @@ public class Role {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-
-
-	/**
-	 * @return the userRoles
-	 */
-	public Set<UserRole> getUserRoles() {
-		return userRoles;
-	}
-
-
-	/**
-	 * @param userRoles the userRoles to set
-	 */
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
-	}
 	
-	
-
 }
