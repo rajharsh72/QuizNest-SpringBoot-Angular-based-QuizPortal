@@ -26,7 +26,7 @@ public class AuthController {
 	
 	@Autowired
 	private UserService userService;
-	
+
 	@PostMapping("/auth")
 	public JwtResponse generateToken(@RequestBody JwtRequest jwtRequest) throws Exception{
 		return this.authService.createJwtToken(jwtRequest);

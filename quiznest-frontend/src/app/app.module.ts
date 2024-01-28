@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { authInterceptorProviders } from './services/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSnackBarModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
