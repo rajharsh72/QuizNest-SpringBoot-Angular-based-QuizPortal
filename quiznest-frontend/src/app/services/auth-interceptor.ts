@@ -17,7 +17,8 @@ export class AuthInterceptor implements HttpInterceptor{
         //add jwtToken to the HttpHeader
         const token = this._loginService.getToken();
         if(token!=null){
-            authRequest = authRequest.clone({setHeaders:{TOKEN_HEADER:`Bearer ${token}`}});
+            authRequest = authRequest.clone({setHeaders:{
+                Authorization:`Bearer ${token}`}});
         }
 
         return next.handle(authRequest);

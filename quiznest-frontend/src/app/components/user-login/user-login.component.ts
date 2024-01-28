@@ -23,6 +23,14 @@ export class UserLoginComponent {
         console.log("Success!!");
         console.log(res.token);
         
+        //set jwt token on login token
+        this._loginService.setToken(res.token);
+
+        this._loginService.getCurrentUser().subscribe((user:any)=>{
+          this._loginService.setUser(user);
+          console.log(user);
+        })
+
         
       },
       (err)=>{

@@ -40,6 +40,10 @@ export class UserLoginService {
     }
   }
 
+  getCurrentUser():Observable<any>{
+    return this._httpClient.get(this.API_URL+'/current-user');
+  }
+
   isLoggedIn(): boolean{
     let token = this.getToken();
     if(token == undefined || token == '' || token == null){
