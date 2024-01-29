@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './services/auth-interceptor';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { authInterceptorProviders } from './services/auth-interceptor';
     UserRegisterationComponent,
     HomeComponent,
     UserLoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserDashboardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

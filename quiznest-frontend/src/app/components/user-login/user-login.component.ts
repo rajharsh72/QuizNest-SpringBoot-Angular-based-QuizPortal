@@ -21,7 +21,7 @@ export class UserLoginComponent {
     if(this.loginForm.valid){
       this._loginService.userAuthentication(this.loginForm.value).subscribe((res)=>{
         console.log("Success!!");
-        console.log(res.token);
+        console.log(res);
         
         //set jwt token on login token
         this._loginService.setToken(res.token);
